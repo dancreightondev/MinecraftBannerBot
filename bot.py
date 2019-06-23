@@ -44,7 +44,7 @@ if layers != 0:
         pattern = tint_image(p, c[1])
         pattern.convert("RGBA")
         banner = Image.alpha_composite(banner, pattern)
-        print(f"Added pattern {n} with color {c[0]} to banner")
+        print(f"Added pattern {n} to banner with color {c[0]}")
 
 banner = Image.alpha_composite(banner, shadow)
 banner.save(os.path.join(os.path.dirname(__file__), "output.png"))
