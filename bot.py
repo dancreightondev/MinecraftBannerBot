@@ -32,8 +32,9 @@ colors = {
 
 layers = random.randint(0, 6)
 shadow = Image.open(os.path.join(os.path.dirname(__file__), "img/shadow.png"))
-bg = Image.new("RGBA", shadow.size, random.choice(list(colors.values())))
-banner = Image.alpha_composite(bg, shadow)
+bg = random.choice(list(colors.values()))
+banner = Image.new("RGBA", shadow.size, bg)
+print(f"Created new flag with background color {bg}")
 
 if layers != 0:
     for i in range(layers):
