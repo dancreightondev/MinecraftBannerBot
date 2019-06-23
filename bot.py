@@ -47,5 +47,5 @@ if layers != 0:
         print(f"Added pattern {n} with color {c[0]} to banner")
 
 banner = Image.alpha_composite(banner, shadow)
-banner.save("D:/Projects/Python/BannerBot/output.png")
+banner.save(os.path.join(os.path.dirname(__file__), "output.png"))
 print(f"Generated banner with {layers+1} layers")
