@@ -31,14 +31,14 @@ colors = {
 }
 
 layers = random.randint(0, 6)
-shadow = Image.open("D:/Projects/Python/BannerBot/img/shadow.png")
+shadow = Image.open(os.path.join(os.path.dirname(__file__), "img/shadow.png"))
 bg = Image.new("RGBA", shadow.size, random.choice(list(colors.values())))
 banner = Image.alpha_composite(bg, shadow)
 
 if layers != 0:
     for i in range(layers):
         n = random.randint(1, 38)
-        p = Image.open("D:/Projects/Python/BannerBot/img/pattern_" + str(n).zfill(2) + ".png")
+        p = Image.open(os.path.join(os.path.dirname(__file__), "img/pattern_" + str(n).zfill(2) + ".png"))
         c = random.choice(list(colors.values()))
         pattern = tint_image(p, c)
         pattern.convert("RGBA")
@@ -47,4 +47,4 @@ if layers != 0:
 
 banner = Image.alpha_composite(banner, shadow)
 banner.save("D:/Projects/Python/BannerBot/output.png")
-print(f"Generated banner with {layers} layers")
+print(f"Generated banner with {layers+1} layers")
